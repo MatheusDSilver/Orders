@@ -5,7 +5,7 @@ namespace Orders.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Controller : ControllerBase
+    public class OrdersController : ControllerBase
     {
     }
 }
