@@ -15,7 +15,7 @@ namespace Orders.Domain.Entities
         {
             Id = Guid.NewGuid();
             PostedAt = DateTime.Now;
-            Status = OrderStatus.Started;
+            Status = OrderStatus.Pending;
             Items = new List<OrderItems>();
 
             SumValues();
