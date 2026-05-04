@@ -25,8 +25,15 @@ namespace Orders.Domain.Entities
         {
             foreach(var itens in Items)
             {
-                TotalValue += itens.Value * itens.Amount;
+                TotalValue += itens.Value * itens.Quantity;
             }
         }
+    }
+
+    public class OrderItems
+    {
+        public string ItemName { get; set; }
+        public int Quantity { get; set; }
+        public decimal Value { get; set; }
     }
 }
