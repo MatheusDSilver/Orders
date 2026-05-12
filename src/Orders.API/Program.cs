@@ -1,8 +1,9 @@
+using Orders.Application;
 using Orders.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddInfrastructure();
+builder.Services.AddInfrastructure().AddApplication();
 
 // Add services to the container.
 

@@ -4,7 +4,7 @@ using Orders.Domain.Repositories;
 
 namespace Orders.Application.Services
 {
-    public class ItemService
+    public class ItemService : IItemService
     {
         private readonly IItemsRepository _repository;
 
