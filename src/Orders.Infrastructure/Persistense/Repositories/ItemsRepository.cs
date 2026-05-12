@@ -1,9 +1,10 @@
 ﻿using MongoDB.Driver;
 using Orders.Domain.Entities;
+using Orders.Domain.Repositories;
 
 namespace Orders.Infrastructure.Persistense.Repositories
 {
-    public class ItemsRepository
+    public class ItemsRepository : IItemsRepository
     {
         private readonly IMongoCollection<Items> _collection;
 
@@ -16,7 +17,7 @@ namespace Orders.Infrastructure.Persistense.Repositories
             await _collection.InsertOneAsync(items);
         }
 
-        public async Task<Items> GetByCodeAsync(string itemName)
+        public async Task<Items> GetByNameAsync(string itemName)
         {
             return await _collection.Find(c => c.ItemName == itemName).SingleOrDefaultAsync();
         }

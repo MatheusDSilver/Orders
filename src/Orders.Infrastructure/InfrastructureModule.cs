@@ -2,7 +2,9 @@
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using Orders.Domain.Repositories;
 using Orders.Infrastructure.Persistense;
+using Orders.Infrastructure.Persistense.Repositories;
 
 namespace Orders.Infrastructure
 {
@@ -11,7 +13,8 @@ namespace Orders.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {
             services
-                .AddMongo();
+                .AddMongo()
+                .AddRepositories();
             return services;
         }
 
@@ -50,6 +53,12 @@ namespace Orders.Infrastructure
                 return db;
             });
 
+            return services;
+        }
+
+        public static IServiceCollection AddRepositories(this IServiceCollection services)
+        {
+            services.AddScoped<IItemsRepository, ItemsRepository>();
             return services;
         }
     }

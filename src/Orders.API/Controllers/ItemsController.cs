@@ -2,9 +2,9 @@
 
 namespace Orders.API.Controllers
 {
-    [Route("api/orders]")]
+    [Route("api/items")]
     [ApiController]
-    public class OrdersController : ControllerBase
+    public class ItemsController : ControllerBase
     {
     }
 }
