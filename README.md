@@ -10,5 +10,7 @@ Se a quantidade de itens for suficiente, o projeto Stock irá liberar o pedido e
 * MongoDB
 * RabbitMQ
 * Clean Architecture
+* .NET 7
+* ASP.NET Core 7
 
 > PROJETOS EM DESENVOLVIMENTO
