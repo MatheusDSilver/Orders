@@ -59,6 +59,8 @@ namespace Orders.Infrastructure
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
             services.AddScoped<IItemsRepository, ItemsRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+
             return services;
         }
     }

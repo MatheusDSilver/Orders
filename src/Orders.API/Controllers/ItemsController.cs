@@ -17,7 +17,7 @@ namespace Orders.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(AddItemInputModel model)
+        public async Task<IActionResult> Add(AddItemInputModel model)
         {
             var itemName = await _service.Add(model);
 

@@ -5,18 +5,21 @@ namespace Orders.Domain.Entities
     public class Order
     {
         public Guid Id { get; private set; }
+        public string TrackingCode { get; private set; }
         public DateTime PostedAt { get; private set; }
         public OrderStatus Status { get; private set; }
         public decimal TotalValue { get; private set; }
 
         public List<OrderItems> Items { get; private set; }
 
-        public Order()
+        public Order(List<OrderItems> items)
         {
             Id = Guid.NewGuid();
+            TrackingCode = GenerateTrackingCode();
             PostedAt = DateTime.Now;
             Status = OrderStatus.Pending;
-            Items = new List<OrderItems>();
+
+            Items = items;
 
             SumValues();
         }
@@ -27,6 +30,28 @@ namespace Orders.Domain.Entities
             {
                 TotalValue += itens.Value * itens.Quantity;
             }
+        }
+
+        private string GenerateTrackingCode()
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const string numbers = "0123456789";
+
+            var code = new char[10];
+            var random = new Random();
+
+            for (var i = 0; i < 5; i++)
+            {
+                code[i] = chars[random.Next(chars.Length)];
+            }
+
+            for (var i = 5; i < 10; i++)
+            {
+                code[i] = numbers[random.Next(numbers.Length)];
+            }
+
+            return new String(code);
+
         }
     }
 

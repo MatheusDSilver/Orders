@@ -17,6 +17,7 @@ namespace Orders.Application
         private static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddScoped<IItemService, ItemService>();
+            services.AddScoped<IOrderService, OrderService>();
             return services;
         }
     }
