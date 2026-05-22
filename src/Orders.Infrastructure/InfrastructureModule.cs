@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using Orders.Domain.Repositories;
+using Orders.Infrastructure.Messaging;
 using Orders.Infrastructure.Persistense;
 using Orders.Infrastructure.Persistense.Repositories;
 
@@ -60,6 +61,7 @@ namespace Orders.Infrastructure
         {
             services.AddScoped<IItemsRepository, ItemsRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IMessageBusService, RabbitMqService>();
 
             return services;
         }
