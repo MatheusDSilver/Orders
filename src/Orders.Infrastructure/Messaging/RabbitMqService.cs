@@ -19,6 +19,14 @@ namespace Orders.Infrastructure.Messaging
 
             _connection = connectionFactory.CreateConnection("order-service-publisher");
             _channel = _connection.CreateModel();
+
+            _channel.ExchangeDeclare(
+            exchange: _exchange,
+            type: ExchangeType.Direct,
+            durable: true,
+            autoDelete: false,
+            arguments: null
+        );
         }
 
         public void Publish(object data, string routingKey)

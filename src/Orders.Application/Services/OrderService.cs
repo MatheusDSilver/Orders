@@ -22,7 +22,7 @@ namespace Orders.Application.Services
             var order = model.ToEntity();
             await _repository.AddAsync(order);
 
-            var orderCompletedEvent = new OrderUpdatedEvent(order.TrackingCode);
+            var orderCompletedEvent = new OrderUpdatedEvent(order.TrackingCode, order.Status, order.Items);
 
             _messageBus.Publish(orderCompletedEvent, "order-updated");
 
