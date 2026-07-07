@@ -26,6 +26,8 @@ namespace Orders.Application.Services
 
             _messageBus.Publish(orderCompletedEvent, "order-updated");
 
+            Console.WriteLine($"Order with tracking code {order.TrackingCode} has been added and event published.");
+
             return order.TrackingCode;
         }
 
