@@ -24,7 +24,7 @@ namespace Orders.Application.Services
 
             var orderCompletedEvent = new OrderUpdatedEvent(order.TrackingCode, order.Status, order.Items);
 
-            _messageBus.Publish(orderCompletedEvent, "order-updated");
+            _messageBus.Publish(orderCompletedEvent, "order-created");
 
             Console.WriteLine($"Order with tracking code {order.TrackingCode} has been added and event published.");
 
