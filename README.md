@@ -2,8 +2,9 @@
 
 Repositório criado para praticar mensageria com RabbitMQ, realizando comunicação assíncrona entre dois projetos.
 
-No projeto Orders é feito o pedido incluindo os itens, e no projeto Stock, é verificado se existe a quantidade de itens solicitados.
-Se a quantidade de itens for suficiente, o projeto Stock irá liberar o pedido e atualizar a quantidade de itens no banco.
+Este projeto atua como o publicador no fluxo de mensageria. Ele envia eventos para a fila stock-service/order-created no RabbitMQ, que são consumidos pelo serviço Stock."
+
+[Projeto Stock "Consumidor"](https://github.com/MatheusDSilver/Stock.git)
 
 ## Conceitos e tecnologias utilizados (até o momento)
 
@@ -12,5 +13,3 @@ Se a quantidade de itens for suficiente, o projeto Stock irá liberar o pedido e
 * Clean Architecture
 * .NET 7
 * ASP.NET Core 7
-
-> PROJETOS EM DESENVOLVIMENTO
