@@ -4,18 +4,28 @@ namespace Orders.Application.ViewModels
 {
     public class ItemViewModel
     {
-        public string ItemName { get; set; } = string.Empty;
-        public decimal Value { get; set; }
+        public List<string> ItemNames { get; set; }
 
-        public ItemViewModel(string itemName, decimal value)
+        public ItemViewModel(List<string> itemsNamesList)
         {
-            ItemName = itemName;
-            Value = value;
+            ItemNames = itemsNamesList;
+
+        }
+        public ItemViewModel(string itemName)
+        {
+            ItemNames = new List<string> { itemName };
+        }
+
+
+        public static ItemViewModel FromEntity(List<Items> itemsList)
+        {
+            var ItemsNames = itemsList.Select(i => i.ItemName).ToList();
+            return new ItemViewModel(ItemsNames);
         }
 
         public static ItemViewModel FromEntity(Items item)
         {
-            return new ItemViewModel(item.ItemName, item.Value);
+            return new ItemViewModel(item.ItemName);
         }
     }
 }

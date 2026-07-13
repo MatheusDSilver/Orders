@@ -28,5 +28,12 @@ namespace Orders.Application.Services
 
             return ItemViewModel.FromEntity(item);
         }
+
+        public async Task<ItemViewModel> GetAll()
+        {
+            var item = await _repository.GetAllAsync();
+
+            return ItemViewModel.FromEntity(item);
+        }
     }
 }

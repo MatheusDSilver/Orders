@@ -17,9 +17,14 @@ namespace Orders.Infrastructure.Persistense.Repositories
             await _collection.InsertOneAsync(items);
         }
 
+        public async Task<List<Items>> GetAllAsync()
+        {
+            return await _collection.Find(c => true).ToListAsync();
+        }
+
         public async Task<Items> GetByNameAsync(string itemName)
         {
-            return await _collection.Find(c => c.ItemName == itemName).SingleOrDefaultAsync();
+            return await _collection.Find(i => i.ItemName == itemName).SingleAsync();
         }
     }
 }

@@ -6,5 +6,6 @@ namespace Orders.Domain.Repositories
     {
         Task AddAsync(Items items);
         Task<Items> GetByNameAsync(string itemName);
+        Task<List<Items>> GetAllAsync();
     }
 }

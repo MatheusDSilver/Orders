@@ -37,5 +37,12 @@ namespace Orders.API.Controllers
 
             return Ok(item);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var items = await _service.GetAll();
+            return Ok(items);
+        }
     }
 }
